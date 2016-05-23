@@ -20,11 +20,12 @@
 
 	<script type="text/javascript">
 		var App = angular.module('demoInputMask', []);
-		App.directive('time', function() {
+		App.directive('mask', function() {
 		    return {
 		        restrict: 'A',
 		        link: function(scope, element, attrs) {
-		            $(element).mask('99:99');
+								console.log(attrs.mask);
+		            $(element).mask(attrs.mask);
 		        }
 		    };
 		});
@@ -38,7 +39,7 @@
 <body>
 	<div ng-app="demoInputMask" ng-controller="MyController">
 		<div ng-repeat="item in data">
-    	<input time=true type="text" value="{{ item }}" />
+    	<input mask='99:99' type="text" value="{{ item }}" />
 		</div>
 	</div>
 
